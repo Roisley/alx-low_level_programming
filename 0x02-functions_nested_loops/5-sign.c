@@ -1,26 +1,29 @@
-#include <stdio.h>
+#include "main.h"
 /**
-  * main - print the first 50 fibonacci numbers.
-  * Return: Nothing.
-  */
-int main(void)
+ * print_sign - Determines whether an integer is positive, negative or zero.
+ * @n: the number to be checked.
+ * Return: 1 if positive, 0 if zero, -1 if negative, / if not a digit.
+ */
+int print_sign(int n)
 {
-	unsigned long count, i, j, k;
-
-	i = 0;
-	j = 1;
-	for (count = 0; count < 50; count++)
+	if (n > 0)
 	{
-		k = i + j;
-		i = j;
-		j = k;
-		printf("%lu", k);
-		if (count == 49)
-			putchar('\n');
-		else
-		{
-			printf(", ");
-		}
+		_putchar('+');
+		return (1);
 	}
-	return (0);
+	else if (n == 0)
+	{
+		_putchar('0');
+		return (0);
+	}
+	else if (n < 0)
+	{
+		_putchar('-');
+		return (-1);
+	}
+	else
+	{
+		_putchar('-');
+		return ('/');
+	}
 }

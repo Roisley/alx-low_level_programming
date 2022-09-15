@@ -1,45 +1,21 @@
-#include <stdio.h>
-/**
-  * main - print the first 98 fibonacci numbers.
-  * Return: Nothing.
-  */
-int main(void)
-{
-	int count;
-	unsigned long i, j, k;
-	unsigned long m, n, p, carry;
+#include "main.h"
 
-	count = 0;	
-	i = 0;
-	j = 1;
-        for (count = 1; count <= 91; count++)
-        {	
-		k = i + j;
-		i = j;
-		j = k;
-		printf("%lu, ", k);
-	}
-	m = i % 1000;
-	i = i / 1000;
-	n = j % 1000;
-	j = j / 1000;
-	while (count <= 98)
-	{
-                carry = (m + n) / 1000;
-		p = (m + n) - carry * 1000;
-		k = (i + j) + carry;
-		m = n;
-		n = p;
-		i = j;
-		j = k;
-		if (p >= 100)
-			printf("%lu%lu", k, p);
-		else
-			printf("%lu0%lu", k, p);
-		if (count != 98)	
-			printf(", ");
-	       count++;
-	}
-	putchar('\n');
-	return (0);
+/**
+ * print_last_digit - prints last digit of integer input
+ * @n: integer to modify
+ *
+ * Return: l
+ */
+
+
+int print_last_digit(int n)
+{
+	int l, p;
+
+	l = n % 10;
+	if (l <  0)
+		l = -l;
+	p = '0' + l;
+	_putchar(p);
+	return (l);
 }
